@@ -13,37 +13,33 @@ impl Rat {
         Rat { nom: nom / d, den: den / d }
     }
     
-    fn print(&self) -> Rat {
+    fn print(&self) -> &Rat {
         println!("{0}/{1}", self.nom, self.den);
-        Rat::new(self.nom, self.den)
+        &self
     }
 
     fn add(&self, rat: Rat) -> Rat {
         let nom = self.nom * rat.den + self.den * rat.nom;
         let den = self.den * rat.den;
-        let d = gcd(nom, den);
-        Rat { nom: nom / d, den: den / d }
+        Rat::new(nom, den)
     }
 
     fn sub(&self, rat: Rat) -> Rat {
         let nom = self.nom * rat.den - self.den * rat.nom;
         let den = self.den * rat.den;
-        let d = gcd(nom, den);
-        Rat { nom: nom / d, den: den / d }
+        Rat::new(nom, den)
     }
 
     fn mul(&self, rat: Rat) -> Rat {
         let nom = self.nom * rat.nom;
         let den = self.den * rat.den;
-        let d = gcd(nom, den);
-        Rat { nom: nom / d, den: den / d }
+        Rat::new(nom, den)
     }
     
     fn div(&self, rat: Rat) -> Rat {
         let nom = self.nom * rat.den;
         let den = self.den * rat.nom;
-        let d = gcd(nom, den);
-        Rat { nom: nom / d, den: den / d }
+        Rat::new(nom, den)
     }
 }
 
@@ -53,5 +49,5 @@ fn main() {
         .add(Rat::new(2, 5)).print()
         .mul(Rat::new(1, 2)).print()
         .div(Rat::new(20, 50)).print()
-        .sub(Rat { nom: 1, den: 20 }).print();
+        .sub(Rat::new(1, 20)).print();
 }
