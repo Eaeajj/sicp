@@ -5,6 +5,7 @@
 (define (square x) (* x x))
 (define (cube x) (* x x x))
 
+(define (divides? a b) (= 0 (remainder a b)))
 (define (to-pos x) (if (< x 0) (* -1 x) x))
 (define (average x y)
   (/ (+ x y) 2))
@@ -15,7 +16,7 @@
 
 (define (smallest-divisor n)
   (define (iter i)
-    (cond ((= (remainder n i) 0) i)
+    (cond ((divides? n i) i)
           ((> (square i) n) n)
           (else (iter (+ i 1)))))
   (iter 2))
