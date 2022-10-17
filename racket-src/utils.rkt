@@ -4,6 +4,7 @@
 
 (define (square x) (* x x))
 (define (cube x) (* x x x))
+(define (double x) (* 2 x))
 
 (define (divides? a b) (= 0 (remainder a b)))
 (define (to-pos x) (if (< x 0) (* -1 x) x))
