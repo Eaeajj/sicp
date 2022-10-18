@@ -10,6 +10,8 @@
 (define (to-pos x) (if (< x 0) (* -1 x) x))
 (define (average x y)
   (/ (+ x y) 2))
+(define (half x y)
+  (/ (+ x y) 2))
 
 (define (aprox-equal-at arg1 arg2 accuracy)
   (<= (abs (- arg1 arg2)) accuracy))
