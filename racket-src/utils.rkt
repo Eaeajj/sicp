@@ -31,3 +31,14 @@
 
 (define (identity x) x)
 (define (inc x) (+ x 1))
+
+; 2.33 ex
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+    initial
+    (op (car sequence)
+        (accumulate op initial (cdr sequence)))))
+
+; after 2.39 ex
+(define (flatmap proc seq)
+  (accumulate append null (map proc seq)))
