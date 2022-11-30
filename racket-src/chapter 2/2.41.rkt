@@ -17,4 +17,15 @@
   (filter (λ (x) (= (sum-triple x) s))
           (ordered-triples n)))
 
-(ordered-triples-of-sum 5 10)
+; (ordered-triples-of-sum 5 10)
+
+(require algorithms)
+(require threading)
+
+(define (triplets-sum n k)
+  (let ((lst (range 1 (+ n 1))))
+    (~>> lst
+         (cartesian-product lst lst)
+         (filter increasing?)
+         (filter (λ (t) (= (sum t) k)))
+         )))
