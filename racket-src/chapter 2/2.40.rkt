@@ -20,3 +20,15 @@
   (filter prime-sum? (unique-pairs n))))
 
 (prime-sum-pairs 4)
+
+
+
+(require algorithms)
+(require threading)
+
+(define (unique-pairs-2 n)
+  (let ((lst (range 1 (+ n 1))))
+        (~> lst
+          (cartesian-product lst)
+          (filter increasing?)
+          (remove-duplicates))))
