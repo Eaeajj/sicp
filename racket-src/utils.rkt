@@ -25,9 +25,9 @@
   (iter 2))
 
 (define (prime? n)
-  (if (= n 1) 
-    #f 
-    (= (smallest-divisor n) n)))
+  (if (= n 1)
+      #f
+      (= (smallest-divisor n) n)))
 
 (define (identity x) x)
 (define (inc x) (+ x 1))
@@ -35,10 +35,16 @@
 ; 2.33 ex
 (define (accumulate op initial sequence)
   (if (null? sequence)
-    initial
-    (op (car sequence)
-        (accumulate op initial (cdr sequence)))))
+      initial
+      (op (car sequence)
+          (accumulate op initial (cdr sequence)))))
 
 ; after 2.39 ex
 (define (flatmap proc seq)
   (accumulate append null (map proc seq)))
+
+(define (enumerate-interval low high)
+  (if (> low high)
+      null
+      (cons low (enumerate-interval (+ low 1) high))))
+

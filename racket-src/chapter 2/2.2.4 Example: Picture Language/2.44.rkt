@@ -1,5 +1,6 @@
 #lang racket
 (#%require sicp-pict)
+; paint show img in drracket
 
 (define (right-split painter n)
   (if (= n 0)
