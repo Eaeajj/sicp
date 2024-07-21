@@ -8,6 +8,7 @@
 (require "2.46.rkt")
 (require "2.47.rkt")
 (require "2.48.rkt")
+(provide frame-coord-map segments->painter)
 
 (define (frame-coord-map frame)
   (lambda (v)

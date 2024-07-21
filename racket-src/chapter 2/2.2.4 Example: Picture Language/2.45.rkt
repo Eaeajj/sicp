@@ -1,6 +1,8 @@
 #lang racket
 (#%require sicp-pict)
 
+(provide (all-defined-out))
+
 (define (split proc1 proc2)
   (define (specific-split painter n)
     (if (= n 0)

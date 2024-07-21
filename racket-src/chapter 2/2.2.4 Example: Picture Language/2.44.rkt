@@ -2,6 +2,8 @@
 (#%require sicp-pict)
 ; paint show img in drracket
 
+(provide square-of-four)
+
 (define (right-split painter n)
   (if (= n 0)
       painter
@@ -30,6 +32,13 @@
   (let ((quarter (corner-split painter n)))
     (let ((half (beside (flip-horiz quarter) quarter)))
       (below (flip-vert half) half))))
+
+
+(define (square-of-four tl tr bl br)
+  (lambda (painter)
+    (let ((top (beside (tl painter) (tr painter)))
+          (bottom (beside (bl painter) (br painter))))
+      (below bottom top))))
 
 (paint (square-limit einstein 1))
 
