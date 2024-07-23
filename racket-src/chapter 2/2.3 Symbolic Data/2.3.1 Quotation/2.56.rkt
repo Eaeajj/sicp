@@ -34,7 +34,8 @@
 (define (base expr) (cadr expr))
 (define (exponent expr) (caddr expr))
 (define (make-exponentiation base exponent)
-  (cond ((=number? exponent 0) 1)
+  (cond ((=number? base 1) 1)
+        ((=number? exponent 0) 1)
         ((=number? exponent 1) base)
         ; ((and (number? base) (number? exponent)) (multiply-times base exponent)) <--- here
         (else (list '** base exponent))))
@@ -53,7 +54,12 @@
                         (multiplicand exp))))
 
         ((exponentiation? exp)
-         (make-product (exponent exp)
-                       (make-exponentiation (base exp) (- (exponent exp) 1))))
+         (make-product
+          (make-product
+           (exponent exp)
+           (make-exponentiation
+            (base exp)
+            (make-sum (exponent exp) -1)))
+          (deriv (base exp) var)))
         (else
          (error "unknown expression type: DERIV" exp))))
