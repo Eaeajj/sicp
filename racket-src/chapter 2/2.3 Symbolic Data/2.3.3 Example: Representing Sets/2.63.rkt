@@ -1,5 +1,6 @@
 #lang racket
 
+(provide entry make-tree right-branch left-branch tree->list-2)
 
 (define (entry tree) (car tree))
 (define (left-branch tree) (cadr tree))
