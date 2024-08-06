@@ -1,5 +1,6 @@
 #lang racket
 (require "book.rkt")
+(provide (all-defined-out))
 
 (define sample-tree
   (make-code-tree (make-leaf 'A 4)

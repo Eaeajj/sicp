@@ -1,6 +1,7 @@
 #lang racket
 (require rackunit)
 
+(provide (all-defined-out))
 (define (element-of-set? x set)
   (cond ((null? set) false)
         ((equal? x (car set)) true)
