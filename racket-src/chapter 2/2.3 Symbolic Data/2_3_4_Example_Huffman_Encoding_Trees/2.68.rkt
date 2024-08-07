@@ -4,6 +4,7 @@
 (require "2.67.rkt")
 (require (only-in "../2_3_3_Example_Representing_Sets/2.60.rkt" element-of-set?))
 
+(provide (all-defined-out))
 (define (encode-symbol symbol tree)
   (if (element-of-set? symbol (symbols tree))
       (if (leaf? tree)
@@ -19,4 +20,4 @@
       (append (encode-symbol (car message) tree)
               (encode (cdr message) tree))))
 
-(encode-symbol 'A sample-tree)
+; (encode-symbol 'A sample-tree)

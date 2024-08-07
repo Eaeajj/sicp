@@ -4,6 +4,8 @@
 (require "2.67.rkt")
 (require rackunit)
 
+(provide (all-defined-out))
+
 (define (generate-huffman-tree pairs)
   (successive-merge (make-leaf-set pairs)))
 
