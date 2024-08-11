@@ -1,4 +1,6 @@
 #lang racket
+; props to
+; https://github.com/CompSciCabal/SMRTYPRTY/blob/a8e2c5049199635fecce7b7f70a2225cda6558d8/sicp/v3/2.3/hz-huffman.rkt
 
 ;;
 ;; Consider the steps in the Huffman tree generation algorithm:
