@@ -1,6 +1,6 @@
 #lang racket
 
-(require "../2_3_2_Example_Symbolic_Differentiation/2.56.rkt")
+(require "../../2_3_Symbolic_Data/2_3_2_Example_Symbolic_Differentiation/2.56.rkt")
 
 ; abstract get & put
 (define (get procedure-key datum) (procedure-key))
